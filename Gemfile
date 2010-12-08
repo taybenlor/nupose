@@ -7,8 +7,11 @@ gem 'rails', '3.0.0'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem pg
-gem soundcloud-ruby-api-wrapper
+gem 'pg'
+
+gem 'soundcloud-ruby-api-wrapper'
+gem 'oauth-active-resource'
+gem 'multipart-post'
 
 
 # Use unicorn as the web server
