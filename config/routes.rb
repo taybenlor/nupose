@@ -1,8 +1,16 @@
-Playtime::Application.routes.draw do
+Nupo::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   root to: "home#index"
+  resources :posters
+  resources :widgets
+  resources :tracks
+
+  get "oauth/new" => "oauth#new"
+  get "oauth/create" => "oauth#create"
+  
+  match ":url" => "posters#show"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

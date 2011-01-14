@@ -1,0 +1,2 @@
+class ShareWidget < Widget
+end

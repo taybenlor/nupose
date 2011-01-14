@@ -1,0 +1,2 @@
+class TextWidget < Widget
+end

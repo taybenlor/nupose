@@ -1,0 +1,541 @@
+@font-face{
+	font-family: 'BlackJackRegular';
+	src: url('/fonts/black_jack-webfont.eot');
+	src: local('☺'), url('/fonts/black_jack-webfont.woff') format('woff'), url('/fonts/black_jack-webfont.ttf') format('truetype'), url('/fonts/black_jack-webfont.svg#webfontVZcfyX7f') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'Pictos';
+	src: url('/fonts/pictos-web.eot');
+	src: local('☺'), url('/fonts/pictos-web.woff') format('woff'), url('/fonts/pictos-web.ttf') format('truetype'), url('/fonts/pictos-web.svg#webfontVZcfyX7f') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+	background: #161a20;
+  }
+
+/* we want the bottom to be a thick gray line with a thin pink lining */
+/* so we go pseudo for inside, real for outside */
+header{
+  padding:none;
+  margin: none;
+  position: relative;
+  width: 100%;
+  background-color: #161a20;
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, rgb(62,62,78)),
+      color-stop(0, rgb(42,42,57))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(62,62,78) 100%,
+      rgb(42,42,57) 0%
+  );
+  -moz-box-shadow: 0px 1px 1px black;
+  -webkit-box-shadow: 0px 1px 1px black;
+  box-shadow: 0px 1px 1px black;
+  color: white;
+}
+
+header:after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  background-color: #FF5E99;
+  position: absolute;
+}
+
+header .branding h1{
+  font-size: 2.5em;
+  font-family: BlackJackRegular;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: #FF5E99;
+  text-shadow: 0px -1px 0px white, 0px 1px 1px black;
+}
+
+header #connect{
+  width: 960px;
+  margin: auto;
+  position: relative;
+}
+  header #connect a{
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    text-indent: -9999px;
+    background: url('/images/soundcloud/connect.png');
+    width: 105px;
+    height: 25px;
+  }
+  
+    header #connect a.connected{
+      width: 119px;
+      background: url('/images/soundcloud/disconnect.png');
+    }
+
+a {
+  text-decoration: none;
+}
+
+#url{
+  background-color: #161a20;
+  padding: 6px;
+  -webkit-border-radius: 15px;
+  border: 1px solid rgba(255,255,255, 0.2);
+  height: 30px;
+  text-align: center;
+  width: 525px;
+  padding-left: 20px;
+  top: 10px;
+  position: relative;
+}
+  #url *{
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px;
+  }
+  
+#toolbar{
+  margin-top: 15px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.4em;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255, 0.2);
+  border-bottom: none;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-top-left-radius: 20px;
+  position: relative;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, rgb(225,222,226)),
+      color-stop(0, rgb(180,180,180))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(225,222,226) 100%,
+      rgb(180,180,180) 0%
+  );
+  color: #161a20;
+  
+  -moz-box-shadow: 0px -1px 1px rgba(0,0,0,0.7);
+  -webkit-box-shadow: 0px -1px 1px rgba(0,0,0,0.7);
+  box-shadow: 0px -1px 1px rgba(0,0,0,0.7);
+}
+  
+  #toolbar .tool{
+    height: 40px;
+    padding-top: 10px;
+    width: 155px;
+    margin: none;
+    display: inline-block;
+    text-indent: -9999px;
+    position: relative;
+  }
+  
+  #toolbar .tool:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
+  }
+  
+  #toolbar .tool:active{
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(200,200,200)),
+        color-stop(1, rgb(160,160,160))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(200,200,200) 0%,
+        rgb(160,160,160) 1%
+    );
+  }
+  
+  #toolbar .tool:after{
+    display: block;
+    text-indent: 0px;
+    font-family: Pictos;
+    font-size: 2em;
+    
+    position: absolute;
+    top: 5px;
+    left: 65px;
+  }
+  
+    #text_tool{
+      -webkit-border-top-left-radius: 20px;
+      padding-left: 1px;
+    }
+    
+      #text_tool:after{
+        content: "p";
+      }
+    
+    #image_tool{
+    }
+    
+      #image_tool:after{
+        content: "P";
+      }
+
+    #link_tool{
+    }
+
+      #link_tool:after{
+        content: "j";
+      }
+
+    #music_tool{
+    }
+
+      #music_tool:after{
+        content: "m";
+      }
+
+    #location_tool{
+    }
+
+      #location_tool:after{
+        content: "@";
+      }
+  
+    #share_tool{
+      -webkit-border-top-right-radius: 20px;
+      padding-right: 2px;
+    }
+    
+      #share_tool:after{
+        content: "B";
+      }
+    
+    
+
+#canvas{
+  position: relative;
+  margin-top: 10px;
+  border-top: 1px solid rgba(225,222,226, 0.2);
+  background: black;
+  min-height: 800px;
+  border-right: 1px solid rgba(225,222,226, 0.2);
+  border-left: 1px solid rgba(225,222,226, 0.2);
+  border-bottom: 1px solid rgba(225,222,226, 0.2);
+  margin-bottom: 50px;
+}
+
+#canvas:before{
+  content: "";
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: black;
+}
+
+.bar{
+  height: 200px;
+  width: 125px;
+  position: fixed;
+  z-index: 10;
+  top: 40%;
+  border: 1px solid rgb(150,150,150);
+  background: rgb(225,222,226);
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, rgb(225,222,226)),
+      color-stop(0, rgb(180,180,180))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(180,180,180) 0%,
+      rgb(225,222,226) 100%
+  );
+  
+  -moz-box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 0px rgba(255,255,255,1);
+  -webkit-box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 0px rgba(255,255,255,1);
+  box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 0px rgba(255,255,255,1);
+}
+
+  .bar button{
+    display: block;
+    width: 100px;
+    margin-left: 15px;
+    height: 40px;
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+    background: none;
+    border: 1px solid #888;
+    font-size: 1.1em;
+    
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(1, rgb(225,222,226)),
+        color-stop(0, rgb(180,180,180))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(180,180,180) 0%,
+        rgb(225,222,226) 100%
+    );
+    
+    -moz-box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 1px rgba(255,255,255,0.7);
+    -webkit-box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 1px rgba(255,255,255,0.7);
+    box-shadow: 0px -1px 0px rgba(0,0,0,0.7), 0px 1px 1px rgba(255,255,255,0.7);
+  }
+  
+    .bar button:hover{
+      background-image: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(1, rgb(235,232,236)),
+          color-stop(0, rgb(190,190,190))
+      );
+      background-image: -moz-linear-gradient(
+          center bottom,
+          rgb(190,190,190) 0%,
+          rgb(235,232,236) 100%
+      );
+    }
+
+    .bar button:active{
+      background: rgba(0,0,0,0.1);
+    }
+
+#right_bar{
+  right: 0px;
+  border-right: none;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+  
+  #right_bar #preview{
+    margin-top: 30px;
+  }
+
+#left_bar{
+  left: 0px;
+  border-left: none;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+
+  #left_bar h1{
+    text-align: center;
+  }
+
+  #left_bar input{
+    width: 75px;
+    margin-left: 10px;
+  }
+  
+    #left_bar #top_colour{
+      margin-top: 20px;
+    }
+  
+  #left_bar button{
+    display: block;
+    width: 100px;
+    margin-left: 10px;
+    height: 40px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #888;
+    font-size: 1.1em;
+  }
+  
+  
+  
+/* Widget Styles
+ * These are things like the outside lines, rotate, resize and settings buttons
+ *
+ */
+ 
+ .widget{
+   position: absolute;
+   min-width: 40px;
+   min-height: 40px;
+ }
+ 
+  .widget img{
+    width: 100%;
+  }
+ 
+  .widget .controls{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -2px;
+    left: -2px;
+    border: 2px dashed rgba(0,0,0,0.0);
+    z-index: 9000;
+  }
+    .widget .controls:hover{
+      border: 2px dashed #FF5E99;
+      cursor: move;
+    }
+  
+    .widget .controls .resize{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      bottom: -10px;
+      right: -10px;
+    
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+
+      content: "R";
+      border: none;
+      background: none;
+      color: white;
+    }
+    
+      .widget .controls .resize:active{
+        color: gray;
+      }
+      
+      .widget .controls .resize:after{
+        content: "`";
+        font-family: Pictos;
+        font-size: 19px;
+        margin-left: -6px;
+      }
+    
+    .widget .controls .rotate{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      right: -10px;
+
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+
+      content: "R";
+      color: white;
+      border: none;
+      background: none;
+    }
+    
+      .widget .controls .rotate:active{
+        color: gray;
+      }
+    
+      .widget .controls .rotate:after{
+        content: "0";
+        font-family: Pictos;
+        font-size: 19px;
+        margin-left: -6px;
+      }
+    
+    .widget .controls .settings{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: -10px;
+      margin-top: -10px;
+
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+
+      content: "R";
+      border: none;
+      background: none;
+      color: white;
+    }
+    
+      .widget .controls .settings:active{
+        color: gray;
+      }
+    
+      .widget .controls .settings:after{
+        content: "y";
+        font-family: Pictos;
+        font-size: 19px;
+        margin-left: -6px;
+      }
+    
+  .widget .panel{
+    padding: none;
+    z-index: 9001;
+    position: absolute;
+    width: 200px;
+    min-height: 300px;
+    border: 1px solid rgb(150,150,150);
+    background: rgb(225,222,226);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(1, rgb(225,222,226)),
+        color-stop(0, rgb(180,180,180))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgba(0,0,0, 0.2) 0%,
+        rgba(62,62,78, 0.6) 100%
+    );
+    opacity: 90%;
+    left: -250px;
+    top: 50%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  
+    /* Triangle */
+    .widget .panel:after{
+    	content: "";
+    	display: block; /* reduce the damage in FF3.0 */
+    	position: absolute;
+    	width: 0;
+    	height: 0;
+    	border-width: 10px 10px 0; /* vary these values to change the angle of the vertex */
+    	border-style: solid;
+    	border-color: rgba(150,150,150, 0.8) transparent;
+    	top: 50%; /* controls vertical position */
+    	right: -8px; /* value = - border-left-width - border-right-width */
+    	margin-top: -8px;
+    	bottom: auto;
+      left: auto;
+    	border-width:8px 0 8px 8px;
+    	border-color:transparent rgba(150,150,150, 0.8);
+    }
+    
+    .widget .panel li{
+      list-style: none;
+    }
+    
+    .widget .panel h1{
+      text-align: center;
+    }
+  
+    .widget .panel.closed{
+      display: none;
+    }
+  
+    .widget .panel.open{
+      display: block;
+    }

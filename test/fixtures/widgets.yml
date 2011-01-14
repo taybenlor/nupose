@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  style: MyText
+  data: MyText
+  version: 1
+  width: 1
+  height: 1
+  left: 1
+  top: 1
+  poster_id: 1
+
+two:
+  type: MyString
+  style: MyText
+  data: MyText
+  version: 1
+  width: 1
+  height: 1
+  left: 1
+  top: 1
+  poster_id: 1

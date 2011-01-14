@@ -1,0 +1,2 @@
+class MusicWidget < Widget
+end

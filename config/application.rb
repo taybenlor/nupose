@@ -5,8 +5,9 @@ require 'rails/all'
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
+require 'soundcloud'
 
-module Playtime
+module Nupo
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -14,6 +15,12 @@ module Playtime
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/app/models/widgets)
+    
+    consumer_token = 'YDuvCmUaFwskjmCvVSrNuQ'
+    consumer_secret = 'vZr65zsk57sCxRKka9o4HCY3sxNeynNgWrKf7VcUw'
+    $sc_host = 'soundcloud.com' # could also be 'sandbox-soundcloud.com'
+    $sc_consumer = Soundcloud.consumer(consumer_token, consumer_secret, "http://api.#{$sc_host}")
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

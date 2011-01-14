@@ -1,0 +1,2 @@
+class LocationWidget < Widget
+end

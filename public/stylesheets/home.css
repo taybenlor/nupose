@@ -1,0 +1,203 @@
+/* @override 
+	http://169.254.182.178:3000/stylesheets/global.css
+*/
+	
+/* Use this for global styling */
+
+/* I have installed a Grid System. Explanation:
+ * It is called the 960 grid system - http://960.gs
+ * It is based on the idea of a 960px wide website (very standard)
+ * Here is an example of use:
+ * <div class="container_12">
+ *     <div class="grid_7 prefix_1">
+ *         <div class="grid_2 alpha">
+ *             ...
+ *         </div>
+ *         <div class="grid_3">
+ *             ...
+ *         </div>
+ *         <div class="grid_2 omega">
+ *             ...
+ *         </div>
+ *     </div>
+ *     <div class="grid_3 suffix_1">
+ *         ...
+ *     </div>
+ * </div>
+ *
+ * container_12 means 12 total columns - you can choose between 12 and 16
+ * grid_7 means this takes up 7 columns
+ * prefix_1 means there is an extra 1 column space before this content (you can replace 1 with any number)
+ * alpha means this is the first column, align with the left (remove the left margin that would normally occur)
+ * omega means this is the last column, align with the right (remove the right margin that would normally occur)
+ * suffix_1 means there is an extra 1 column space after this content
+ * so in total grid_7 + grid_3 + suffix_1 + prefix_1 = 12 columns
+ *
+ * Happy layout-ing
+ *
+ */
+ 
+/*
+ * There are also default styles for the flash boxes, they sit in "flashes.css"
+ * You can also give a checkbox a class "switch" and it will behave like an iphone-style switch
+ * Anything with a class "spinner" will be a spinner - similar but different for "loading"
+ */
+ 
+ 
+/*
+ * Colours! Scheme: http://www.colourlovers.com/palette/1366968/watch_snow_together?widths=1
+ * Cold Black
+ * #161a20
+ * rgb(22, 26, 32)
+ * Dark Gray
+ * #2A2A39
+ * rgb(42,42,57)
+ * Light Gray
+ * #E1DEE2
+ * rgb(225,222,226)
+ * Hot Pink
+ * #EE3665
+ * rgb(238,54,101)
+ * Warm Black
+ * #211E28
+ * rgb(33,30,40)
+ *
+ */
+ 
+@font-face{
+	font-family: 'BlackJackRegular';
+	src: url('/fonts/black_jack-webfont.eot');
+	src: local('☺'), url('/fonts/black_jack-webfont.woff') format('woff'), url('/fonts/black_jack-webfont.ttf') format('truetype'), url('/fonts/black_jack-webfont.svg#webfontVZcfyX7f') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+	background: #E1DEE2;
+  }
+
+/* we want the bottom to be a thick gray line with a thin pink lining */
+/* so we go pseudo for inside, real for outside */
+header{
+  padding:none;
+  margin: none;
+  position: relative;
+  width: 100%;
+  background-color: #161a20;
+  height: 200px;
+  border-bottom: 10px solid #161a20;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, rgb(62,62,78)),
+      color-stop(0.02, rgb(42,42,57)),
+      color-stop(0.01, rgb(22,26,32)),
+      color-stop(0, rgb(22,26,32))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(62,62,78) 100%,
+      rgb(42,42,57) 2%,
+      rgb(22,26,32) 1%,
+      rgb(22,26,32) 0%
+  );
+  -moz-box-shadow: 0px 5px 5px #888;
+  -webkit-box-shadow: 0px 5px 5px #888;
+  box-shadow: 0px 5px 5px #888;
+}
+
+header:after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -10px; 
+  background: #FF5E99;
+  }
+
+header #branding{
+}
+
+header #info{
+  margin-top: -120px;
+  background-color: #161a20;
+  padding: 6px;
+  -webkit-border-radius: 15px;
+  border: 1px solid rgba(255,255,255, 0.2);
+  height: 100px;
+}
+
+header h1{
+  font-size: 10em;
+  text-align: center;
+  color: white;
+  font-family: BlackJackRegular, Palatino Linotype, Book Antiqua, Palatino, serif;
+  text-shadow: black 1px 1px 1px;
+}
+
+header h2{
+  color: white;
+  display: block;
+  text-align: center;
+  margin: none;
+}
+
+header #new_poster{ /* Hang down button for making a new poster*/
+  display: block;
+  position: absolute;
+  z-index: 1;
+  height: 50px;
+  width: 170px;
+  background-color: #FF5E99;
+  border: 2px solid #FF5E99;
+  border-top: 2px solid #FF5E99;
+  -webkit-border-bottom-right-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+  bottom: -67px;
+  left: 43%;
+  text-decoration: none;
+  text-align: center;
+  font-size: 2.1em;
+  padding-top: 5px;
+  color: #2A2A39;
+  font-family: sans-serif;
+  -moz-box-shadow: 0px 5px 5px #888;
+  -webkit-box-shadow: 0px 5px 5px #888;
+  box-shadow: 0px 5px 5px #888;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, #FF5E99),
+      color-stop(0, #EF4E89)
+  );
+}
+
+  header #new_poster:hover{
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(1, #FF6EA9),
+        color-stop(0, #FF5E99)
+    );
+  }
+  
+  header #new_poster:active{
+    bottom: -70px;
+    border-top: 5px solid #FF6EA9;
+  }
+  
+#content{
+  margin-top: 100px;
+}
+	
+	
+/* @group Nav Bar */
+	
+/* @end */
+	
+/* @group Create & Edit Account, Add Product */
+

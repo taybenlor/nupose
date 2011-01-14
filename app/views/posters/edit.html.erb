@@ -1,0 +1,72 @@
+<header id="menu">
+  <div class="branding container_12">
+    <a href="/"><h1>Nupose</h1></a>
+  </div>
+  <div id="url" class="container_12">
+    <h1>You'll be linking people to</h1>
+    <label>http://nupose.pondr.in/</label>
+    <input type="text" id="url_field" placeholder="<%= @poster.url %>">
+    <figure id="url_feedback" data-available="true">
+      ✓
+    </figure>
+  </div>
+  <div id="connect">
+    
+    <script>
+    SC.Connect.options = {
+      'request_token_endpoint': '/oauth/new',
+      'access_token_endpoint': '/oauth/create',
+      'callback': function(params) {
+        window.location.reload();
+      }
+    };
+    </script>
+    <a id="sc-connect"
+       href="#" 
+       onclick="SC.Connect.initiate();">
+       Connect
+    </a>
+  </div>
+  <menu id="toolbar" class="container_12">
+    <li id="text_tool" class="tool" data-widget="TextWidget">Text</li>
+    <li id="image_tool" class="tool" data-widget="ImageWidget">Image</li>
+    <li id="link_tool" class="tool" data-widget="LinkWidget">Link</li>
+    <li id="music_tool" class="tool" data-widget="MusicWidget">Music</li>
+    <li id="location_tool" class="tool" data-widget="LocationWidget">Location</li>
+    <li id="share_tool" class="tool" data-widget="ShareWidget">Sharing</li>
+  </menu>
+</header>
+
+<div id="left_bar" class="left bar">
+  <h1>Background</h1>
+  <input id="top_colour" type="color" class="color" />
+  <input id="colour_slider" type="range" />
+  <input id="bottom_slider" type="color" class="color" />
+  
+  <h1>-or-</h1>
+  <button>
+    Load Image
+  </button>
+  <!-- fill me with delicious gradient goodies -->
+</div>
+<div id="canvas" class="container_12">
+  <div class="spinner"></div>
+  <!-- touch me with your beautiful designs -->
+</div>
+<div id="right_bar" class="right bar">
+  <button id="preview">
+    Preview
+  </button>
+  <button id="save">
+    Save
+  </button>
+  <button id="save_exit">
+    Save &amp; Exit
+  </button>
+</div>
+
+<%= javascript_include_tag 'create', 'jscolor' %>
+<script>
+load_poster(<%= @poster.to_json.html_safe %>);
+</script>
+

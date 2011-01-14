@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Playtime::Application.load_tasks
+Nupo::Application.load_tasks
