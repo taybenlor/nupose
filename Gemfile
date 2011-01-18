@@ -12,6 +12,7 @@ gem 'pg'
 gem 'soundcloud-ruby-api-wrapper'
 gem 'oauth-active-resource'
 gem 'multipart-post'
+gem 'heroku'
 
 
 # Use unicorn as the web server

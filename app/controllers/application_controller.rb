@@ -1,6 +1,8 @@
 require 'soundcloud'
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  helper :all
+  helper_method :connected?, :require_connected, :require_not_connected, :current_connection
   
   private
   def connected?
@@ -8,10 +10,14 @@ class ApplicationController < ActionController::Base
   end
   
   def require_not_connected
-    return if connected?
+    return false if connected?
   end
   
-  def connection
+  def require_connected
+    return false unless connected?
+  end
+  
+  def current_connection
     return @connection if @connection
     return None unless connected?
     access_token = OAuth::AccessToken.new($sc_consumer, session[:access_token], session[:access_token_secret])

@@ -72,9 +72,13 @@
 	font-style: normal;
 }
 
-html {
+body {
 	background: #E1DEE2;
   }
+  
+html{
+  background: white;
+}
 
 /* we want the bottom to be a thick gray line with a thin pink lining */
 /* so we go pseudo for inside, real for outside */
@@ -148,14 +152,14 @@ header #new_poster{ /* Hang down button for making a new poster*/
   display: block;
   position: absolute;
   z-index: 1;
-  height: 50px;
+  height: 35px;
   width: 170px;
   background-color: #FF5E99;
   border: 2px solid #FF5E99;
   border-top: 2px solid #FF5E99;
   -webkit-border-bottom-right-radius: 7px;
   -webkit-border-bottom-left-radius: 7px;
-  bottom: -67px;
+  bottom: -52px;
   left: 43%;
   text-decoration: none;
   text-align: center;
@@ -186,14 +190,34 @@ header #new_poster{ /* Hang down button for making a new poster*/
   }
   
   header #new_poster:active{
-    bottom: -70px;
+    bottom: -55px;
     border-top: 5px solid #FF6EA9;
   }
   
 #content{
   margin-top: 100px;
 }
-	
+
+footer{
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid rgb(222,222,222);
+  padding-top: 20px;
+  text-align: center;
+}
+
+footer p{
+  margin-left: 20px;
+}
+
+footer ul{
+  margin: auto;
+}
+
+footer ul li{
+  list-style: none;
+  display: inline-block;
+}
 	
 /* @group Nav Bar */
 	

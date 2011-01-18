@@ -1,14 +1,15 @@
 class TracksController < ApplicationController
   
   def index
-    sc = connection
+    sc = current_connection
     @tracks = sc.User.find_me.tracks
+    render layout: nil
   end
   
   def show
     @id = params[:id]
-    access_token = OAuth::AccessToken.new($sc_consumer, session[:access_token], session[:access_token_secret])
-    sc = Soundcloud.register({:access_token => access_token, :site => "http://api.#{$sc_host}"})
+    sc = current_connection
     @track = sc.Track.find(@id)
+    render layout: nil
   end
 end

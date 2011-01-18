@@ -3,12 +3,15 @@ Nupo::Application.routes.draw do
   # first created -> highest priority.
 
   root to: "home#index"
-  resources :posters
+  resources :posters do
+    post "update_url"
+  end
   resources :widgets
   resources :tracks
 
   get "oauth/new" => "oauth#new"
   get "oauth/create" => "oauth#create"
+  get "oauth/destroy" => "oauth#destroy"
   
   match ":url" => "posters#show"
 

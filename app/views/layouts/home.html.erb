@@ -34,10 +34,6 @@
   <header>
     <div id="branding" class="container_12">
       <h1>Nupose</h1>
-      <div id="info" class="grid_3">
-        <img src="/images/logo.png" height="75px">
-        <h2>HTML5 Interactive Posters</h2>
-      </div>
     </div>
     <a id="new_poster" href="<%= new_poster_path %>">
       Make One
@@ -60,13 +56,17 @@
     <%= yield %>
   </div><!-- /#content -->
   
-  <footer class="container_12">
+  <footer>
+    <p>Nupose was handcrafted by Ben Taylor.</p>
     <ul>
       <li>
         <a href="http://twitter.com/taybenlor">Twitter</a>
       </li>
       <li>
         <a href="http://taybenlor.com/">Blog</a>
+      </li>
+      <li>
+        <a href="mailto:taybenlor@gmail.com">Email</a>
       </li>
     </ul>
   </footer>

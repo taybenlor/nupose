@@ -13,12 +13,13 @@
 #  consumer secret from your app's information page) 
 
 class OauthController < ApplicationController
+  before_filter :require_not_connected, only: [:new, :create]
   # Gets an oauth request token from SoundCloud and redirects the user to the
   # SoundCloud authorization page. The request token and secret are stored in
   # the session so they can be retrieved by the access_token endpoint.
   def new
     if session[:access_token] and session[:access_token_secret]
-      redirect_to "http://localhost:3000/sc-connect-complete.html"
+      redirect_to "/sc-connect-complete.html"
       return
     end
     
@@ -56,7 +57,18 @@ class OauthController < ApplicationController
     # Redirecting to sc-connect-compete.html closes the popup window and
     # invokes your js callback. Params appended to this url will be passed to
     # the callback
-    redirect_to "http://localhost:3000/sc-connect-complete.html?username=#{CGI::escape(username)}"
+    redirect_to "/sc-connect-complete.html?username=#{CGI::escape(username)}"
+  end
+  
+  # Log out
+  def destroy
+    session[:request_token] = nil
+    session[:request_token_secret] = nil
+    session[:oauth_token] = nil
+    session[:access_token] = nil
+    session[:access_token_secret] = nil
+    # Note this doesn't actually disconnect them... yet
+    redirect_to :back
   end
 
 end

@@ -1,7 +1,14 @@
 <%= javascript_include_tag 'create' %>
-<div id="poster">
-  
+
+<% if @poster.background_image && @poster.background_image != "" %>
+<div id="poster" style="background: url('<%= @poster.background_image%>')">
+<% else %>
+<div id="poster" style="background: -webkit-gradient(linear, left bottom, left top, color-stop(1, #<%= @poster.background_colour_top %>),color-stop(0, #<%= @poster.background_colour_bottom %>))">
+<% end %>
+  <%= render partial: "widgets/widget", collection: @poster.widgets %>
 </div>
 <footer>
-  Made using <%= link_to "Nupo", root_url %> - the new way to make event posters.
+  <a href="/"><h1>Nupose</h1></a>
+  <p>Made using <%= link_to "Nupose", root_url %> - the new way to make event posters.</p>
+  <p>Nupose was handcrafted by <%= link_to "Ben Taylor", "http://taybenlor.com" %></p>
 </footer>

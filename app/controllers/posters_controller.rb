@@ -1,8 +1,8 @@
 class PostersController < ApplicationController
-  before_filter :verify, only: [:edit, :update, :destroy]
+  before_filter :verify, only: [:edit, :update, :destroy, :update_url]
   def show
     @poster = Poster.find(params[:id]) if params[:id]
-    @poster = Poster.find(params[:url]) if params[:url]
+    @poster = Poster.find_by_url(params[:url]) if params[:url]
     redirect_to :root unless @poster
   end
   
@@ -21,8 +21,18 @@ class PostersController < ApplicationController
   end
 
   def update
-    @poster.update(params[:poster])
+    @poster.update_attributes(params[:poster])
     render json: @poster.errors
+  end
+  
+  def update_url
+    if Poster.where(url: params[:poster][:url]).count == 0
+      @poster.url = params[:poster][:url]
+      @poster.save
+      render json: @poster
+    else
+      render json: false, status: 500
+    end
   end
 
   def destroy

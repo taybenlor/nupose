@@ -1,0 +1,2 @@
+class LinkWidget < Widget
+end

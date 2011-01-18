@@ -4,28 +4,33 @@
   </div>
   <div id="url" class="container_12">
     <h1>You'll be linking people to</h1>
-    <label>http://nupose.pondr.in/</label>
+    <label>http://nupose.com/</label>
     <input type="text" id="url_field" placeholder="<%= @poster.url %>">
-    <figure id="url_feedback" data-available="true">
-      ✓
-    </figure>
+    <button id="url_check" class="available">
+      check
+    </button>
   </div>
   <div id="connect">
-    
-    <script>
-    SC.Connect.options = {
-      'request_token_endpoint': '/oauth/new',
-      'access_token_endpoint': '/oauth/create',
-      'callback': function(params) {
-        window.location.reload();
-      }
-    };
-    </script>
-    <a id="sc-connect"
-       href="#" 
-       onclick="SC.Connect.initiate();">
-       Connect
-    </a>
+    <% if connected? %>
+      <a id="sc-connect" class="connected" href="/oauth/destroy">
+        Disconnect
+      </a>
+    <% else %>
+      <script>
+      SC.Connect.options = {
+        'request_token_endpoint': '/oauth/new',
+        'access_token_endpoint': '/oauth/create',
+        'callback': function(params) {
+          sc_connected.apply(this, $A(arguments));
+        }
+      };
+      </script>
+      <a id="sc-connect"
+         href="#" 
+         onclick="SC.Connect.initiate();">
+         Connect
+      </a>
+    <% end %>
   </div>
   <menu id="toolbar" class="container_12">
     <li id="text_tool" class="tool" data-widget="TextWidget">Text</li>
@@ -39,29 +44,26 @@
 
 <div id="left_bar" class="left bar">
   <h1>Background</h1>
-  <input id="top_colour" type="color" class="color" />
-  <input id="colour_slider" type="range" />
-  <input id="bottom_slider" type="color" class="color" />
+  <label>Gradient</label>
+  <input id="top_colour" type="color" class="color" value="<%# @poster.background_colour_top || "000000" %>"/>
+  <input id="bottom_colour" type="color" class="color" value="<%# @poster.background_colour_bottom || "000000" %>"/>
   
   <h1>-or-</h1>
-  <button>
-    Load Image
-  </button>
-  <!-- fill me with delicious gradient goodies -->
+  <label>Image</label>
+  <input type="text" placeholder="url" id="background_image">
 </div>
 <div id="canvas" class="container_12">
-  <div class="spinner"></div>
-  <!-- touch me with your beautiful designs -->
+  <!-- touch me with your beautiful posters -->
 </div>
 <div id="right_bar" class="right bar">
-  <button id="preview">
-    Preview
-  </button>
   <button id="save">
     Save
   </button>
-  <button id="save_exit">
-    Save &amp; Exit
+  <button id="preview">
+    Preview
+  </button>
+  <button id="share_button" style="display: none">
+    Share
   </button>
 </div>
 

@@ -1,2 +1,4 @@
-<% @widget = widget unless @widget %>
-<%= render partial: widget.type %>
+<% widget = @widget unless widget %>
+<div class="widget" style="<%= widget.style %>">
+  <%= render partial: "/widgets/" + widget.class.name.underscore, object: widget %>
+</div>
